@@ -1,0 +1,350 @@
+
+:root {
+    --verde-principal: #246B45;
+    --verde-oscuro: #195236;
+    --verde-claro: #E4EFE3;
+    --fondo: #F4F7F1;
+    --blanco: #FFFFFF;
+    --texto: #26352B;
+    --texto-secundario: #6A786D;
+    --borde: #E1E8DF;
+    --sombra: 0 8px 24px rgba(36, 107, 69, 0.07);
+}
+
+html {
+    min-height: 100%;
+    font-size: 16px;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.navbar-eventos {
+    background: var(--blanco);
+    padding: 16px 0;
+    border-bottom: 1px solid var(--borde);
+    box-shadow: 0 3px 14px rgba(38, 53, 43, 0.03);
+}
+
+.marca-eventos {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--verde-principal);
+    text-decoration: none;
+}
+
+.marca-eventos:hover {
+    color: var(--verde-oscuro);
+}
+
+.marca-eventos strong {
+    display: block;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+.marca-eventos small {
+    display: block;
+    margin-top: 3px;
+    color: var(--texto-secundario);
+    font-size: 0.65rem;
+    letter-spacing: 1.4px;
+}
+
+.marca-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: var(--verde-principal);
+    color: var(--blanco);
+    font-size: 1.35rem;
+}
+
+.navbar-eventos .nav-link {
+    padding: 10px 17px !important;
+    border-radius: 24px;
+    color: var(--texto-secundario);
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navbar-eventos .nav-link:hover,
+.navbar-eventos .nav-link:focus {
+    background: var(--verde-claro);
+    color: var(--verde-principal);
+}
+
+.navbar-toggler {
+    border-color: var(--borde);
+    border-radius: 10px;
+}
+
+.contenedor-principal {
+    flex: 1;
+}
+
+.footer-eventos {
+    padding: 22px 0;
+    background: var(--blanco);
+    border-top: 1px solid var(--borde);
+    text-align: center;
+}
+
+.footer-eventos p {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--texto);
+    font-weight: 700;
+    letter-spacing: -0.4px;
+}
+
+a {
+    color: var(--verde-principal);
+}
+
+a:hover {
+    color: var(--verde-oscuro);
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary,
+.btn-success {
+    border-color: var(--verde-principal);
+    background: var(--verde-principal);
+    color: var(--blanco);
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    border-color: var(--verde-oscuro);
+    background: var(--verde-oscuro);
+    color: var(--blanco);
+}
+
+.btn-outline-primary {
+    border-color: var(--verde-principal);
+    color: var(--verde-principal);
+}
+
+.btn-outline-primary:hover {
+    background: var(--verde-principal);
+    color: var(--blanco);
+}
+
+.card {
+    overflow: hidden;
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    background: var(--blanco);
+    box-shadow: var(--sombra);
+}
+
+.card-header {
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--borde);
+    background: var(--blanco);
+    font-weight: 700;
+}
+
+.card-body {
+    padding: 22px;
+}
+
+.form-control,
+.form-select {
+    min-height: 45px;
+    border: 1px solid var(--borde);
+    border-radius: 11px;
+    color: var(--texto);
+    background-color: var(--blanco);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--verde-principal);
+    box-shadow: 0 0 0 0.2rem rgba(36, 107, 69, 0.12);
+}
+
+.form-label {
+    margin-bottom: 7px;
+    color: var(--texto);
+    font-weight: 600;
+}
+
+.table {
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.table thead th {
+    padding: 15px;
+    border-bottom: 1px solid var(--borde);
+    background: #F8FAF6;
+    color: var(--texto-secundario);
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.table tbody td {
+    padding: 15px;
+    border-color: var(--borde);
+}
+
+.table-hover tbody tr:hover > * {
+    background: #F8FAF6;
+}
+
+.alerta-eventos {
+    border: 1px solid #C8E3CC;
+    border-radius: 12px;
+    background: var(--verde-claro);
+    color: var(--verde-oscuro);
+}
+
+.badge {
+    padding: 7px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.text-muted {
+    color: var(--texto-secundario) !important;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-eventos .navbar-nav {
+        align-items: stretch !important;
+        padding-top: 14px;
+    }
+
+    .navbar-eventos .nav-link {
+        padding: 12px 15px !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .contenedor-principal .container {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+    }
+
+    .card-body {
+        padding: 16px;
+    }
+
+    .btn {
+        padding: 9px 13px;
+    }
+}
+
+
+.tarjeta-evento {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-evento:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(36, 107, 69, 0.13);
+}
+
+.imagen-evento {
+    min-height: 155px;
+    padding: 18px;
+    display: flex;
+    align-items: flex-start;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.6), transparent 30%),
+        linear-gradient(135deg, #DCEBDD, #B8D5BC);
+}
+
+.imagen-evento-contenido {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.etiqueta-evento {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.9);
+    color: #246B45;
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+.icono-evento {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.75);
+    color: #246B45;
+    font-size: 1.5rem;
+}
+
+.precio-evento {
+    white-space: nowrap;
+    color: #246B45;
+    font-size: .9rem;
+    font-weight: 750;
+}
+
+.barra-aforo {
+    height: 7px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #E4EFE3;
+}
+
+.barra-aforo-progreso {
+    height: 100%;
+    border-radius: inherit;
+    background: #246B45;
+}
+
+
+
+.formulario-evento {
+    max-width: 900px;
+}
+
+.formulario-evento .card-header {
+    color: #246B45;
+}
+
+.text-danger {
+    font-size: 0.875rem;
+}

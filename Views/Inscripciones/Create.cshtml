@@ -1,0 +1,50 @@
+
+@model Eventos.Web.Models.Inscripcion
+
+@{
+    ViewData["Title"] = "Nueva inscripción";
+}
+
+<div class="mb-4">
+    <a asp-action="Index" class="text-decoration-none">← Volver a inscripciones</a>
+    <h1 class="mt-3">Nueva inscripción</h1>
+    <p class="text-muted">Selecciona un evento y un asistente para confirmar la participación.</p>
+</div>
+
+<div class="card formulario-evento">
+    <div class="card-header">Datos de inscripción</div>
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="EventoId" class="form-label">Evento</label>
+                <select asp-for="EventoId" asp-items="ViewBag.EventoId" class="form-select">
+                    <option value="">Selecciona un evento</option>
+                </select>
+                <span asp-validation-for="EventoId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="AsistenteId" class="form-label">Asistente</label>
+                <select asp-for="AsistenteId" asp-items="ViewBag.AsistenteId" class="form-select">
+                    <option value="">Selecciona un asistente</option>
+                </select>
+                <span asp-validation-for="AsistenteId" class="text-danger"></span>
+            </div>
+
+            <div class="alert alerta-eventos">
+                La inscripción se registrará con estado <strong>Confirmada</strong> si cumple las validaciones.
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mt-4">
+                <button type="submit" class="btn btn-success">Confirmar inscripción</button>
+                <a asp-action="Index" class="btn btn-outline-primary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

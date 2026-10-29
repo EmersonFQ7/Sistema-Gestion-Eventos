@@ -1,0 +1,63 @@
+
+@model IEnumerable<Eventos.Web.Models.Asistente>
+
+@{
+    ViewData["Title"] = "Asistentes";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+    <div>
+        <span class="text-uppercase small fw-bold" style="color:#246B45;letter-spacing:2px">
+            COMUNIDAD
+        </span>
+        <h1 class="mt-2 mb-2">Nuestros asistentes</h1>
+        <p class="text-muted mb-0">Administra los datos de las personas registradas.</p>
+    </div>
+
+    <a asp-action="Create" class="btn btn-success">+ Registrar asistente</a>
+</div>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <span>Listado de asistentes</span>
+        <span class="badge text-bg-success">@Model.Count() registrados</span>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre completo</th>
+                    <th>DNI</th>
+                    <th>Correo electrónico</th>
+                    <th>Teléfono</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    @foreach (var asistente in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@asistente.Nombres</td>
+                            <td>@asistente.Dni</td>
+                            <td>@asistente.Correo</td>
+                            <td>@(string.IsNullOrWhiteSpace(asistente.Telefono) ? "No registrado" : asistente.Telefono)</td>
+                            <td><span class="badge text-bg-success">Activo</span></td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-center py-5">
+                            <h2 class="h5">Todavía no hay asistentes</h2>
+                            <p class="text-muted mb-0">Registra el primero para comenzar.</p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

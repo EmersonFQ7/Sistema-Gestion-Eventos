@@ -1,0 +1,90 @@
+
+@model IEnumerable<Eventos.Web.Models.Inscripcion>
+
+@{
+    ViewData["Title"] = "Inscripciones";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+    <div>
+        <span class="text-uppercase small fw-bold" style="color:#246B45;letter-spacing:2px">
+            PARTICIPACIÓN
+        </span>
+        <h1 class="mt-2 mb-2">Inscripciones</h1>
+        <p class="text-muted mb-0">Consulta y administra la participación en los eventos.</p>
+    </div>
+
+    <a asp-action="Create" class="btn btn-success">+ Nueva inscripción</a>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Registro de participantes
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Evento</th>
+                    <th>Asistente</th>
+                    <th>Fecha de inscripción</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    @foreach (var inscripcion in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">
+                                @(inscripcion.Evento?.Titulo ?? "Evento no disponible")
+                            </td>
+                            <td>
+                                @(inscripcion.Asistente?.Nombres ?? "Asistente no disponible")
+                            </td>
+                            <td>@inscripcion.FechaInscripcion.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>
+                                @if (inscripcion.Estado == "Confirmada")
+                                {
+                                    <span class="badge text-bg-success">Confirmada</span>
+                                }
+                                else
+                                {
+                                    <span class="badge text-bg-secondary">Cancelada</span>
+                                }
+                            </td>
+                            <td>
+                                @if (inscripcion.Estado == "Confirmada")
+                                {
+                                    <form asp-action="Cancelar" asp-route-id="@inscripcion.Id"
+                                          method="post"
+                                          onsubmit="return confirm('¿Deseas cancelar esta inscripción?');">
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                                            Cancelar
+                                        </button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <span class="text-muted small">Sin acciones</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-center py-5">
+                            <h2 class="h5">Todavía no hay inscripciones</h2>
+                            <p class="text-muted mb-0">Crea una inscripción para comenzar.</p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
